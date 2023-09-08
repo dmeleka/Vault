@@ -24,22 +24,28 @@
     text-align: center;
 }
 
-body,
-html {
-    height: 100vh;
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: var(--primary-dark);
-    /* display: flex; */
 }
 
 /* Header */
 
 header {
     display: flex;
-    padding: 10px;
-    /* height: 50px; */
+    padding: 10px 0;
+    height: 30px;
+    width: 100%;
     background-color: var(--primary-dark);
 }
 
@@ -91,9 +97,9 @@ header {
 
 .main {
     display: flex;
+    flex: 1;
+    width: 100%;
     justify-content: flex-start;
-    /* height: 748px; */
-    height: 93.2vh;
     background-color: var(--primary-dark);
 }
 
@@ -189,10 +195,6 @@ header {
     background-color: var(--primary-dark);
 }
 
-.itm:first-child {
-    background-color: var(--accent-dark);
-}
-
 .itm-img {
     margin-left: 10px;
     height: 40px;
@@ -221,17 +223,18 @@ header {
 
 /* ITMBAR */
 .itm-bar {
-    display: flex;
+    display: none;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
     height: 60%;
     width: 500px;
     border-radius: 10px;
     justify-content: flex-start;
     align-items: flex-start;
-    /* min-width: 1215px; */
-    margin: 0 100px;
+    margin-left: 100px;
     background-color: #131313;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .toolbar {
@@ -249,10 +252,23 @@ header {
     border-radius: 5px;
     color: var(--secondary-dark);
     margin-right: 60px;
+    cursor: pointer;
+}
+
+.dlt-btn:hover {
+    background-color: red;
 }
 
 .edit-btn {
     margin-right: 10px;
+}
+
+.edit-btn.edit {
+    background-color: var(--accent-dark);
+}
+
+.edit-btn:hover {
+    background-color: var(--accent-dark);
 }
 
 .itm-imgL {
@@ -274,17 +290,19 @@ header {
     scale: 1.8;
     color: white;
     right: 15px;
+    cursor: pointer;
 }
 
 .itm-intro .fa-star.gold {
     color: gold;
 }
 
-.itm-nameL {
+#itm-nameL {
     font-size: 25px;
     color: var(--secondary-dark);
     font-weight: 900;
     line-height: 40px;
+    width: 180px;
 }
 
 .itm-type {
@@ -341,8 +359,19 @@ header {
     margin-bottom: 8px;
 }
 
-.pass {
-    font-size: 10px;
+.field {
+    background: none;
+    border: none;
+    font-size: 15px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.field.edit {
+    pointer-events: auto;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid var(--accent-dark);
 }
 
 .add-btn {
@@ -389,6 +418,8 @@ header {
 /* FOOTER */
 footer {
     background-color: var(--primary-dark);
+    height: 15px;
+    width: 100%;
 }
 
 footer h3,
@@ -405,7 +436,7 @@ footer a {
 
 .notification {
     position: fixed;
-    top: 70px;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
     padding: 8px 16px;
